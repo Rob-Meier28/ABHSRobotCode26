@@ -6,6 +6,8 @@ package frc.robot.commands;
 
 import static frc.robot.Constants.OperatorConstants.*;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.CANDriveSubsystem;
@@ -16,11 +18,16 @@ public class Drive extends Command {
   CANDriveSubsystem driveSubsystem;
   CommandXboxController controller;
 
+  DoubleSupplier driveSpeed;
+  DoubleSupplier turnSpeed;
+
   public Drive(CANDriveSubsystem driveSystem, CommandXboxController driverController) {
     // Use addRequirements() here to declare subsystem dependencies.
+    controller = driverController;
+
     addRequirements(driveSystem);
     driveSubsystem = driveSystem;
-    controller = driverController;
+    
   }
 
   // Called when the command is initially scheduled.
@@ -35,7 +42,9 @@ public class Drive extends Command {
   // controllable.
   @Override
   public void execute() {
-    driveSubsystem.driveArcade(-controller.getLeftY() * DRIVE_SCALING, -controller.getRightX() * ROTATION_SCALING);
+    
+
+    driveSubsystem.driveArcade(-controller.getLeftY() * DRIVE_SCALING, controller.getRightX() * ROTATION_SCALING);
   }
 
   // Called once the command ends or is interrupted.
