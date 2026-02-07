@@ -50,7 +50,7 @@ public class DriveSubsystem extends SubsystemBase {
   private final MAXSwerveModule m_rearRight = new MAXSwerveModule(
       DriveConstants.kRearRightDrivingCanId,
       DriveConstants.kRearRightTurningCanId,
-      DriveConstants.kBackRightChassisAngularOffset);
+      DriveConstants.kBackRightChassisAngularOffset);    
 
   // The gyro sensor
   private final Pigeon2 m_gyro = new Pigeon2(2); // ID set
