@@ -4,16 +4,20 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import frc.robot.subsystems.*;
 import frc.robot.Constants;
+import frc.robot.Constants.OIConstants;
+
 import static frc.robot.Constants.OIConstants.*;
 
 import com.pathplanner.lib.auto.AutoBuilder;
@@ -55,6 +59,7 @@ public class RobotContainer {
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
+
     configureBindings();
     autoChooser = AutoBuilder.buildAutoChooser();
     SmartDashboard.putData("autoChooser", autoChooser);
@@ -77,6 +82,19 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
+        driveSubsystem.setDefaultCommand(
+        // The left stick controls translation of the robot.
+        // Turning is controlled by the X axis of the right stic
+        new RunCommand(
+            () -> driveSubsystem.drive(
+                -MathUtil.applyDeadband(driverController.getLeftY(), OIConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(driverController.getLeftX(), OIConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(driverController.getRightX(), OIConstants.kDriveDeadband),
+                true),
+            driveSubsystem));
+   
+
+    
 /* 
     // While the left bumper on operator controller is held, intake Fuel
     opController.leftBumper()
@@ -99,10 +117,12 @@ public class RobotContainer {
     // value). The X-axis is also inverted so a positive value (stick to the right)
     // results in clockwise rotation (front of the robot turning right). Both axes
     // are also scaled down so the rotation is more easily controllable.
-  /*   driveSubsystem.setDefaultCommand(
-        driveSubsystem.driveArcade(
+    
+     driveSubsystem.setDefaultCommand(
+        driveSubsystem.driveFieldRelative(
             () -> -driverController.getLeftY() * DRIVE_SCALING,
-            () -> -driverController.getRightX() * ROTATION_SCALING));*/
+            () -> -driverController.getRightX() * ROTATION_SCALING));
+             */
   }
 
   /**
