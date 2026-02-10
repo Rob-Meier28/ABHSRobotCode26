@@ -1,0 +1,127 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 13.0,
+        "y": 4.0
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 13.092613435870213,
+        "y": 4.240988955078882
+      },
+      "isLocked": false,
+      "linkedName": "RedCenterStart"
+    },
+    {
+      "anchor": {
+        "x": 13.198397590361445,
+        "y": 7.19310843373494
+      },
+      "prevControl": {
+        "x": 13.839449827752361,
+        "y": 6.519647288363881
+      },
+      "nextControl": {
+        "x": 12.74090395119068,
+        "y": 7.673731029312958
+      },
+      "isLocked": false,
+      "linkedName": "EndRight"
+    },
+    {
+      "anchor": {
+        "x": 10.411831325301204,
+        "y": 6.985481927710843
+      },
+      "prevControl": {
+        "x": 10.992025395877794,
+        "y": 7.55487689445446
+      },
+      "nextControl": {
+        "x": 9.94700426182854,
+        "y": 6.529306651592417
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 10.411831325301204,
+        "y": 0.9424578313253016
+      },
+      "prevControl": {
+        "x": 9.655657029622182,
+        "y": 1.8276291738033474
+      },
+      "nextControl": {
+        "x": 10.945591135475695,
+        "y": 0.31764303606871724
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 13.46066265060241,
+        "y": 0.8003975903614469
+      },
+      "prevControl": {
+        "x": 13.054639689531458,
+        "y": 0.5387673598152669
+      },
+      "nextControl": {
+        "x": 14.350182811116731,
+        "y": 1.3735803582940411
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 15.001469879518073,
+        "y": 4.275409638554217
+      },
+      "prevControl": {
+        "x": 14.781748092582214,
+        "y": 4.156152201277908
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Climb"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 3,
+      "rotationDegrees": 180.0
+    },
+    {
+      "waypointRelativePos": 4,
+      "rotationDegrees": 180.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 180.0,
+    "maxAngularAcceleration": 180.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 180.0
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 180.0
+  },
+  "useDefaultConstraints": true
+}

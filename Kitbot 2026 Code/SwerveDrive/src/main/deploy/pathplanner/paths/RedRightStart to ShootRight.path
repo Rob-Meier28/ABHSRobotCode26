@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 13.63707277199074,
-        "y": 3.690807146990741
+        "x": 13.0,
+        "y": 4.0
       },
       "prevControl": null,
       "nextControl": {
-        "x": 14.63707277199074,
-        "y": 3.690807146990741
+        "x": 12.740810142050673,
+        "y": 3.892787860880398
       },
       "isLocked": false,
-      "linkedName": "Path1"
+      "linkedName": "RedCenterStart"
     },
     {
       "anchor": {
-        "x": 15.40862275752315,
-        "y": 2.072720196759259
+        "x": 13.46066265060241,
+        "y": 4.5923132530120485
       },
       "prevControl": {
-        "x": 14.40862275752315,
-        "y": 2.072720196759259
+        "x": 13.673331974123434,
+        "y": 4.460891189289435
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Start2"
+      "linkedName": "ShootRight"
     }
   ],
   "rotationTargets": [],
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -160.56
   },
   "reversed": false,
   "folder": null,
