@@ -119,4 +119,13 @@ public final class Constants {
   public static final class NeoMotorConstants {
     public static final double kFreeSpeedRpm = 6784;
   }
+
+  public static final class ColumnConstants {
+    public static final int shooterMotorCanId = 30;
+    public static final int feederMotorCanId = 31;
+  }
+
+  public static final class IntakeConstants {
+    
+  }
 }
