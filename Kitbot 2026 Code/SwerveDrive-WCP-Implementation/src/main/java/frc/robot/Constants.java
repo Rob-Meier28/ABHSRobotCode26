@@ -126,6 +126,12 @@ public final class Constants {
   }
 
   public static final class IntakeConstants {
-    
+    public static final int armMotorCanId = 40;
+    public static final int rollersMotorCanId = 41;
+  }
+
+  public static final class ClimberConstants {
+    public static final int lClimbMotorCanId = 50;
+    public static final int rClimbMotorCanId = 51;
   }
 }
