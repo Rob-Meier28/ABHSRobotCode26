@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
@@ -16,18 +17,28 @@ public class IntakeSub extends SubsystemBase {
   private final SparkMax arm;
   private final SparkFlex rollers;
 
+  private final AbsoluteEncoder armEncoder;
+
   /** Creates a new Intake. */
   public IntakeSub() {
     arm = new SparkMax(IntakeConstants.armMotorCanId, MotorType.kBrushless);
     rollers = new SparkFlex(IntakeConstants.rollersMotorCanId, MotorType.kBrushless);
+
+    armEncoder = arm.getAbsoluteEncoder();
+
+    double armPosition = armEncoder.getPosition(); //In rotations
   }
 
-  public void rotateArm(double speed) {
-    arm.set(speed);
+  public void rotateArmTo(double angle) {
+    
   }
 
   public void setIntake(double speed) {
     rollers.set(speed);
+  }
+
+  public double armAngle() {
+    return armEncoder.getPosition();
   }
 
   @Override
