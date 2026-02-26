@@ -12,12 +12,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Constants.IntakeConstants;
 
-public class Intake extends SubsystemBase {
+public class IntakeSub extends SubsystemBase {
   private final SparkMax arm;
   private final SparkFlex rollers;
 
   /** Creates a new Intake. */
-  public Intake() {
+  public IntakeSub() {
     arm = new SparkMax(IntakeConstants.armMotorCanId, MotorType.kBrushless);
     rollers = new SparkFlex(IntakeConstants.rollersMotorCanId, MotorType.kBrushless);
   }

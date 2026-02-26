@@ -21,6 +21,14 @@ public class Column extends SubsystemBase {
     feeder = new SparkFlex(ColumnConstants.feederMotorCanId, MotorType.kBrushless);
   }
 
+  public void shoot(double speed) {
+    shooter.set(speed);
+  }
+
+  public void feed(double speed) {
+    feeder.set(speed);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
