@@ -17,7 +17,7 @@ public class Shoot extends Command {
   IntakeSub intakeSub;
 
   boolean goingToB = false;
-  double position = 
+  double position = 0;
 
   public Shoot() {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -34,7 +34,11 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double position = intakeSub.armAngle();
+    position = intakeSub.armAngle();
+    if (position == 90) {
+      
+    }
+
   }
 
   // Called once the command ends or is interrupted.
