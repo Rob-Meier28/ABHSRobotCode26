@@ -125,12 +125,18 @@ public final class Constants {
     public static final int feederMotorCanId = 31;
     public static final double spinUpSeconds = 1;
     public static final double shootSpeed = .5;
+    public static final double feedSpeed = .5;
   }
 
   public static final class IntakeConstants {
     public static final int armMotorCanId = 40;
     public static final int rollersMotorCanId = 41;
     public static final double intakeSpeed = .5;
+    public static final double armGearRatio = 1 / 45;
+
+    public static final class PIDConstants {
+      public static final double kP = 0.01;
+    }
   }
 
   public static final class ClimberConstants {
