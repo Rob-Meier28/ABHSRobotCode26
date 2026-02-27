@@ -8,17 +8,19 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.IntakeSub;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class Deploy extends Command {
+public class DeployIntake extends Command {
   /** Creates a new Deploy. */
   IntakeSub intakeSub;
-  public Deploy() {
+  public DeployIntake() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(intakeSub);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    intakeSub.rotateArmTo(90);
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
