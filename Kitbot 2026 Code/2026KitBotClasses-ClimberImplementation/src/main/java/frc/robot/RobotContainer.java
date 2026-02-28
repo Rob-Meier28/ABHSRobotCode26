@@ -13,10 +13,13 @@ import static frc.robot.Constants.OperatorConstants.*;
 import frc.robot.commands.Drive;
 import frc.robot.commands.Eject;
 import frc.robot.commands.ExampleAuto;
+import frc.robot.commands.ExtendClimber;
 import frc.robot.commands.Intake;
 import frc.robot.commands.LaunchSequence;
+import frc.robot.commands.RetractClimber;
 import frc.robot.subsystems.CANDriveSubsystem;
 import frc.robot.subsystems.CANFuelSubsystem;
+import frc.robot.subsystems.Climber;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -29,6 +32,7 @@ public class RobotContainer {
   // The robot's subsystems
   private final CANDriveSubsystem driveSubsystem = new CANDriveSubsystem();
   private final CANFuelSubsystem fuelSubsystem = new CANFuelSubsystem();
+  private final Climber climber = new Climber();
 
   // The driver's controller
   private final CommandXboxController driverController = new CommandXboxController(
@@ -76,6 +80,10 @@ public class RobotContainer {
     // While the A button is held on the operator controller, eject fuel back out
     // the intake
     operatorController.a().whileTrue(new Eject(fuelSubsystem));
+    //While the d-pad is up, extend the climber
+    operatorController.povUp().whileTrue(new ExtendClimber(climber));
+    //While the d-pad is down, retract the climber
+    operatorController.povDown().whileTrue(new RetractClimber(climber));
 
     // Set the default command for the drive subsystem to the command provided by
     // factory with the values provided by the joystick axes on the driver

@@ -40,7 +40,7 @@ public final class Constants {
     // based on exact robot construction.
     // See the Software Guide for tuning information
     public static final double INTAKING_FEEDER_VOLTAGE = -12;
-    public static final double INTAKING_INTAKE_VOLTAGE = -10;
+    public static final double INTAKING_INTAKE_VOLTAGE = -7;
     public static final double LAUNCHING_FEEDER_VOLTAGE = 9;
     public static final double LAUNCHING_LAUNCHER_VOLTAGE = -8.6;
     public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
@@ -57,5 +57,11 @@ public final class Constants {
     // help avoid turning too fast and beign difficult to control
     public static final double DRIVE_SCALING = .7;
     public static final double ROTATION_SCALING = .8;
+  }
+
+  public static final class ClimberConstants {
+    public static final int lClimbCanId = 50;
+    public static final int rClimbCanId = 51;
+    public static final double telescopeSpeed = 0.1;
   }
 }
