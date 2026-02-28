@@ -111,9 +111,9 @@ public class RobotContainer {
     // the intake
     operatorController.a().whileTrue(new Eject(fuelSubsystem));
     //While the d-pad is up, extend the climber
-    operatorController.povUp().whileTrue(new ExtendClimber(climber));
+    /*operatorController.povUp().whileTrue(new ExtendClimber(climber));
     //While the d-pad is down, retract the climber
-    operatorController.povDown().whileTrue(new RetractClimber(climber));
+    operatorController.povDown().whileTrue(new RetractClimber(climber));*/
 
     // Set the default command for the drive subsystem to the command provided by
     // factory with the values provided by the joystick axes on the driver

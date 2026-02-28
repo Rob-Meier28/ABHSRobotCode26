@@ -22,11 +22,12 @@ public class CANFuelSubsystem extends SubsystemBase {
   public CANFuelSubsystem() {
     // create brushed and brushless motors for each of the motors on the launcher mechanism
     intakeLauncherRoller = new SparkMax(INTAKE_LAUNCHER_MOTOR_ID, MotorType.kBrushless);
-    feederRoller = new SparkMax(FEEDER_MOTOR_ID, MotorType.kBrushed);
+    feederRoller = new SparkMax(FEEDER_MOTOR_ID, MotorType.kBrushless);
 
     // create the configuration for the feeder roller, set a current limit and apply
     // the config to the controller
     SparkMaxConfig feederConfig = new SparkMaxConfig();
+    feederConfig.inverted(true);
     feederConfig.smartCurrentLimit(FEEDER_MOTOR_CURRENT_LIMIT);
     feederRoller.configure(feederConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
