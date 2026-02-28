@@ -10,9 +10,11 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.DriveConstants.*;
+import com.ctre.phoenix6.hardware.Pigeon2;
 
 public class CANDriveSubsystem extends SubsystemBase {
   private final SparkMax leftLeader;
@@ -21,6 +23,7 @@ public class CANDriveSubsystem extends SubsystemBase {
   private final SparkMax rightFollower;
 
   private final DifferentialDrive drive;
+  private final Pigeon2 m_gyro = new Pigeon2(9);
 
   public CANDriveSubsystem() {
     // create brushless motors for drive
@@ -31,6 +34,7 @@ public class CANDriveSubsystem extends SubsystemBase {
 
     // set up differential drive class
     drive = new DifferentialDrive(leftLeader, rightLeader);
+    Rotation2d.fromDegrees(m_gyro.getRotation2d().getDegrees());
 
     // Set can timeout. Because this project only sets parameters once on
     // construction, the timeout can be long without blocking robot operation. Code
@@ -64,6 +68,18 @@ public class CANDriveSubsystem extends SubsystemBase {
     // so that postive values drive both sides forward
     config.inverted(true);
     leftLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+  }
+
+   public void zeroHeading() {
+    m_gyro.reset();
+  }
+  /**
+   * Returns the heading of the robot.
+   *
+   * @return the robot's heading in degrees, from -180 to 180
+   */
+  public double getHeading() {
+    return Rotation2d.fromDegrees(m_gyro.getRotation2d().getDegrees()).getDegrees();
   }
 
   @Override
