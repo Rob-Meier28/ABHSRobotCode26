@@ -25,6 +25,7 @@ import frc.robot.subsystems.CANDriveSubsystem;
 import frc.robot.subsystems.CANFuelSubsystem;
 import frc.robot.subsystems.Climber;
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 import com.pathplanner.lib.path.PathPlannerPath;
 import com.pathplanner.lib.util.PathPlannerLogging;
@@ -40,26 +41,26 @@ import frc.robot.commands.*;
  * commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
+
   private final Field2d field;
   // The robot's subsystems
   private final CANDriveSubsystem driveSubsystem = new CANDriveSubsystem();
   private final CANFuelSubsystem fuelSubsystem = new CANFuelSubsystem();
   private final Climber climber = new Climber();
-
   // The driver's controller
   private final CommandXboxController driverController = new CommandXboxController(
       DRIVER_CONTROLLER_PORT);
-
   // The operator's controller
   private final CommandXboxController operatorController = new CommandXboxController(
       OPERATOR_CONTROLLER_PORT);
-
   // The autonomous chooser
   private final SendableChooser<Command> autoChooser;
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
+    NamedCommands.registerCommand("PickupBalls",new Intake(fuelSubsystem));
+    NamedCommands.registerCommand("Shoot",new LaunchSequence(fuelSubsystem));
     configureBindings();
      field = new Field2d();
     SmartDashboard.putData("Field", field);
@@ -82,12 +83,9 @@ public class RobotContainer {
     autoChooser = AutoBuilder.buildAutoChooser();
     SmartDashboard.putData("autoChooser", autoChooser);
     SmartDashboard.putString("Alliance Color", DriverStation.getAlliance().toString());
-
     // Set the options to show up in the Dashboard for selecting auto modes. If you
     // add additional auto modes you can add additional lines here with
     // autoChooser.addOption
-    
-
     SmartDashboard.putData("autoChooser", autoChooser);
   }
 

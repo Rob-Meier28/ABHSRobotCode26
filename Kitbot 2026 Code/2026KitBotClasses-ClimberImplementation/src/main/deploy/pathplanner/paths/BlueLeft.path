@@ -8,43 +8,27 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.113504326976883,
-        "y": 7.251939038850421
+        "x": 3.158993794544057,
+        "y": 8.421789325625296
       },
       "isLocked": false,
       "linkedName": "Start"
     },
     {
       "anchor": {
-        "x": 5.652336588541667,
-        "y": 7.245192129629629
+        "x": 7.824570095486111,
+        "y": 6.0
       },
       "prevControl": {
-        "x": 4.8988306836292415,
-        "y": 7.34137396159625
+        "x": 6.501669877586854,
+        "y": 6.890414047636466
       },
       "nextControl": {
-        "x": 5.917977042042643,
-        "y": 7.2112842527362995
+        "x": 10.706658546600796,
+        "y": 4.060131815929019
       },
       "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 8.155772063078704,
-        "y": 5.142702618634259
-      },
-      "prevControl": {
-        "x": 5.868156289636662,
-        "y": 7.479432249966348
-      },
-      "nextControl": {
-        "x": 8.914131982256329,
-        "y": 4.36806112729211
-      },
-      "isLocked": false,
-      "linkedName": "3"
+      "linkedName": "Waypoint1"
     },
     {
       "anchor": {
@@ -52,31 +36,15 @@
         "y": 5.3078443287037045
       },
       "prevControl": {
-        "x": 7.868093083446915,
-        "y": 5.4605734377661115
+        "x": 9.121871372462891,
+        "y": 5.034544135067648
       },
       "nextControl": {
-        "x": 8.263940626043826,
-        "y": 5.155115219641298
+        "x": 6.613596498842593,
+        "y": 5.683792679398149
       },
       "isLocked": false,
       "linkedName": "Waypoint2"
-    },
-    {
-      "anchor": {
-        "x": 5.298892650462964,
-        "y": 7.373132667824073
-      },
-      "prevControl": {
-        "x": 7.549669237783498,
-        "y": 7.169369867229907
-      },
-      "nextControl": {
-        "x": 3.928234137926488,
-        "y": 7.497218380615831
-      },
-      "isLocked": false,
-      "linkedName": "4"
     },
     {
       "anchor": {
@@ -84,12 +52,28 @@
         "y": 6.5151437355324076
       },
       "prevControl": {
-        "x": 2.3752099344857336,
-        "y": 6.717182958441336
+        "x": 2.9949410539817882,
+        "y": 7.568378987806053
+      },
+      "nextControl": {
+        "x": 2.1806605223976416,
+        "y": 5.75325014800479
+      },
+      "isLocked": false,
+      "linkedName": "Waypoint3"
+    },
+    {
+      "anchor": {
+        "x": 3.208737919560186,
+        "y": 4.422233362268519
+      },
+      "prevControl": {
+        "x": 2.4498278494195773,
+        "y": 4.863151515169422
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "5"
+      "linkedName": "End"
     }
   ],
   "rotationTargets": [],
@@ -98,9 +82,25 @@
   "eventMarkers": [
     {
       "name": "PickupBalls",
-      "waypointRelativePos": 1.5931202540887859,
-      "endWaypointRelativePos": 3.6082615362149544,
-      "command": null
+      "waypointRelativePos": 0.9927351051401865,
+      "endWaypointRelativePos": 1.6785557827102813,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "PickupBalls"
+        }
+      }
+    },
+    {
+      "name": "Shoot",
+      "waypointRelativePos": 4.0,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "Shoot"
+        }
+      }
     }
   ],
   "globalConstraints": {

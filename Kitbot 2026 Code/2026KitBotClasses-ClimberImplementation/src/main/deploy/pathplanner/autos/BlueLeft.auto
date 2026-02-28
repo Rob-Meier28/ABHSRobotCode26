@@ -7,25 +7,25 @@
         {
           "type": "path",
           "data": {
-            "pathName": "BlueLeft1"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
             "pathName": "BlueLeft2"
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "BlueLeft3"
+            "name": "PickupBalls"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "BlueLeft4"
+            "pathName": "BlueLeft1"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
           }
         }
       ]
