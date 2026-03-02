@@ -29,22 +29,22 @@ public final class Constants {
 
   public static final class FuelConstants {
     // Motor controller IDs for Fuel Mechanism motors
-    public static final int FEEDER_MOTOR_ID = 6;
-    public static final int INTAKE_LAUNCHER_MOTOR_ID = 5;
+    public static final int hopperMotorCanId = 6;
+    public static final int intakeLaunchMotorCanId = 5;
 
     // Current limit and nominal voltage for fuel mechanism motors.
-    public static final int FEEDER_MOTOR_CURRENT_LIMIT = 60;
-    public static final int LAUNCHER_MOTOR_CURRENT_LIMIT = 60;
+    public static final int hopperMotorCurrentLimit = 60;
+    public static final int launcherMotorCurrentLimit = 60;
 
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
-    public static final double INTAKING_FEEDER_VOLTAGE = -9;
-    public static final double INTAKING_INTAKE_VOLTAGE = -7;
-    public static final double LAUNCHING_FEEDER_VOLTAGE = 7;
-    public static final double LAUNCHING_LAUNCHER_VOLTAGE = -8.6;
-    public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
-    public static final double SPIN_UP_SECONDS = 1;
+    public static final double intakingHopperVoltage = -9;
+    public static final double intakingIntakeVoltage = -7;
+    public static final double launchingHopperVoltage = 7;
+    public static final double launchingLauncherVoltage = -8.6;
+    public static final double spinUpHopperVoltage = -6;
+    public static final double spinUpSeconds = 1;
   }
 
   public static final class OperatorConstants {

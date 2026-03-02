@@ -21,13 +21,13 @@ public class CANFuelSubsystem extends SubsystemBase {
   /** Creates a new CANBallSubsystem. */
   public CANFuelSubsystem() {
     // create brushed and brushless motors for each of the motors on the launcher mechanism
-    intakeLauncherRoller = new SparkFlex(INTAKE_LAUNCHER_MOTOR_ID, MotorType.kBrushless);
-    feederRoller = new SparkFlex(FEEDER_MOTOR_ID, MotorType.kBrushless);
+    intakeLauncherRoller = new SparkFlex(intakeLaunchMotorCanId, MotorType.kBrushless);
+    feederRoller = new SparkFlex(hopperMotorCanId, MotorType.kBrushless);
 
     // create the configuration for the feeder roller, set a current limit and apply
     // the config to the controller
     SparkMaxConfig feederConfig = new SparkMaxConfig();
-    feederConfig.smartCurrentLimit(FEEDER_MOTOR_CURRENT_LIMIT);
+    feederConfig.smartCurrentLimit(hopperMotorCurrentLimit);
     feederRoller.configure(feederConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     // create the configuration for the launcher roller, set a current limit, set
@@ -35,18 +35,18 @@ public class CANFuelSubsystem extends SubsystemBase {
     // launching, and apply the config to the controller
     SparkMaxConfig launcherConfig = new SparkMaxConfig();
     launcherConfig.inverted(true);
-    launcherConfig.smartCurrentLimit(LAUNCHER_MOTOR_CURRENT_LIMIT);
+    launcherConfig.smartCurrentLimit(launcherMotorCurrentLimit);
     intakeLauncherRoller.configure(launcherConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     // put default values for various fuel operations onto the dashboard
     // all commands using this subsystem pull values from the dashbaord to allow
     // you to tune the values easily, and then replace the values in Constants.java
     // with your new values. For more information, see the Software Guide.
-    SmartDashboard.putNumber("Intaking feeder roller value", INTAKING_FEEDER_VOLTAGE);
-    SmartDashboard.putNumber("Intaking intake roller value", INTAKING_INTAKE_VOLTAGE);
-    SmartDashboard.putNumber("Launching feeder roller value", LAUNCHING_FEEDER_VOLTAGE);
-    SmartDashboard.putNumber("Launching launcher roller value", LAUNCHING_LAUNCHER_VOLTAGE);
-    SmartDashboard.putNumber("Spin-up feeder roller value", SPIN_UP_FEEDER_VOLTAGE);
+    SmartDashboard.putNumber("Intaking feeder roller value", intakingHopperVoltage);
+    SmartDashboard.putNumber("Intaking intake roller value", intakingIntakeVoltage);
+    SmartDashboard.putNumber("Launching feeder roller value", launchingHopperVoltage);
+    SmartDashboard.putNumber("Launching launcher roller value", launchingLauncherVoltage);
+    SmartDashboard.putNumber("Spin-up feeder roller value", spinUpHopperVoltage);
   }
 
   // A method to set the voltage of the intake roller
