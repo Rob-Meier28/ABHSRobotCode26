@@ -28,8 +28,11 @@ import com.pathplanner.lib.util.PathPlannerLogging;
 
 import static frc.robot.Constants.FuelConstants.*;
 import frc.robot.commands.Autos;
+import frc.robot.commands.Run_Shooter;
+import frc.robot.commands.Shoot;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.CANFuelSubsystem;
+import frc.robot.subsystems.Shooter;
+//import frc.robot.subsystems.CANFuelSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -47,7 +50,8 @@ public class RobotContainer {
   new CommandXboxController(1);
   // The robot's subsystems
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
-  private final CANFuelSubsystem ballSubsystem = new CANFuelSubsystem();
+  private final Shooter Shooter = new Shooter();
+  //private final CANFuelSubsystem ballSubsystem = new CANFuelSubsystem();
 
   // The driver's controller
  /*  private final CommandXboxController driverController = new CommandXboxController(0);
@@ -113,6 +117,7 @@ public class RobotContainer {
                 -MathUtil.applyDeadband(driverController.getRightX(), OIConstants.kDriveDeadband),
                 true),
             driveSubsystem));
+    opController.rightTrigger().whileTrue(new Run_Shooter(Shooter, 0.15, 0.3));
    
 
     
