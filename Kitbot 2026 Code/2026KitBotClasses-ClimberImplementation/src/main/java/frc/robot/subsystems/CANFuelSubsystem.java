@@ -9,24 +9,26 @@ import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.SparkMax;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.FuelConstants.*;
 
 public class CANFuelSubsystem extends SubsystemBase {
-  private final SparkFlex feederRoller;
-  private final SparkFlex intakeLauncherRoller;
+  private final SparkMax feederRoller;
+  private final SparkMax intakeLauncherRoller;
 
   /** Creates a new CANBallSubsystem. */
   public CANFuelSubsystem() {
-    // create brushed and brushless motors for each of the motors on the launcher mechanism
-    intakeLauncherRoller = new SparkFlex(intakeLaunchMotorCanId, MotorType.kBrushless);
-    feederRoller = new SparkFlex(hopperMotorCanId, MotorType.kBrushless);
+    // create brushless motors for each of the motors on the launcher mechanism
+    intakeLauncherRoller = new SparkMax(intakeLaunchMotorCanId, MotorType.kBrushless);
+    feederRoller = new SparkMax(hopperMotorCanId, MotorType.kBrushless);
 
     // create the configuration for the feeder roller, set a current limit and apply
     // the config to the controller
     SparkMaxConfig feederConfig = new SparkMaxConfig();
+    feederConfig.inverted(true);
     feederConfig.smartCurrentLimit(hopperMotorCurrentLimit);
     feederRoller.configure(feederConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
