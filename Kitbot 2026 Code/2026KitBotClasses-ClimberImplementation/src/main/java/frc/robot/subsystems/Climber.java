@@ -12,21 +12,17 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ClimberConstants;
 
 public class Climber extends SubsystemBase {
-  private final SparkMax lClimb;
-  private final SparkMax rClimb;
+  private final SparkMax Climb;
   /** Creates a new Climber. */
   public Climber() {
-    lClimb = new SparkMax(ClimberConstants.lClimbCanId, MotorType.kBrushless);
-    rClimb = new SparkMax(ClimberConstants.rClimbCanId, MotorType.kBrushless);
+    Climb = new SparkMax(ClimberConstants.lClimbCanId, MotorType.kBrushless);
   }
 
   public void Telescope(double speed, boolean extend) {
     if(extend == true) {
-      lClimb.set(-1 * speed);
-      rClimb.set(speed);
+      Climb.set(speed);
     } else {
-      lClimb.set(speed);
-      rClimb.set(-1 * speed);
+      Climb.set(-1 * speed);
     }
   }
 
