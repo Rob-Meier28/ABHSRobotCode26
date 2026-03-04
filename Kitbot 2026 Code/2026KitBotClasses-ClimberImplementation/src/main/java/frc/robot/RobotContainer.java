@@ -81,7 +81,6 @@ public class RobotContainer {
         });
     configureBindings();
     autoChooser = AutoBuilder.buildAutoChooser();
-    SmartDashboard.putData("autoChooser", autoChooser);
     SmartDashboard.putString("Alliance Color", DriverStation.getAlliance().toString());
     // Set the options to show up in the Dashboard for selecting auto modes. If you
     // add additional auto modes you can add additional lines here with
