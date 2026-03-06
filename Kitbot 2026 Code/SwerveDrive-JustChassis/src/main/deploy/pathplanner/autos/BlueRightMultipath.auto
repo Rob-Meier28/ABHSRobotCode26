@@ -7,31 +7,31 @@
         {
           "type": "path",
           "data": {
-            "pathName": "ShootLeft"
+            "pathName": "Blue Right Pickup"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "BlueRightShoot"
           }
         },
         {
           "type": "wait",
           "data": {
-            "waitTime": 4.0
+            "waitTime": 3.0
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "ShootLeft to Center"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "CenterPickup then shoot"
+            "pathName": "BlueRightEnd"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Red",
+  "folder": "Blue",
   "choreoAuto": false
 }

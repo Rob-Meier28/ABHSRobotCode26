@@ -7,7 +7,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "ShootLeft"
+            "pathName": "BlueLeftPickup"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "BlueLeftShoot"
           }
         },
         {
@@ -19,19 +25,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "ShootLeft to Center"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "CenterPickup then shoot"
+            "pathName": "BlueLeftEnd"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Red",
+  "folder": "Blue",
   "choreoAuto": false
 }

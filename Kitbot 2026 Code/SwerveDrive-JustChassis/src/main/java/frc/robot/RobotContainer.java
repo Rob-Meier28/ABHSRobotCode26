@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -29,7 +30,8 @@ import com.pathplanner.lib.util.PathPlannerLogging;
 import static frc.robot.Constants.FuelConstants.*;
 import frc.robot.commands.Autos;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.CANFuelSubsystem;
+//import frc.robot.subsystems.CANFuelSubsystem;
+import frc.robot.commands.ResetGyro;;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -47,7 +49,7 @@ public class RobotContainer {
   new CommandXboxController(1);
   // The robot's subsystems
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
-  private final CANFuelSubsystem ballSubsystem = new CANFuelSubsystem();
+  //private final CANFuelSubsystem ballSubsystem = new CANFuelSubsystem();
 
   // The driver's controller
  /*  private final CommandXboxController driverController = new CommandXboxController(0);
@@ -84,6 +86,7 @@ public class RobotContainer {
     autoChooser = AutoBuilder.buildAutoChooser();
     SmartDashboard.putData("autoChooser", autoChooser);
     SmartDashboard.putString("Alliance Color", DriverStation.getAlliance().toString());
+    SmartDashboard.putData("ResetGyro", new ResetGyro(driveSubsystem));
 
     // Set the options to show up in the Dashboard for selecting auto modes. If you
     // add additional auto modes you can add additional lines here with
@@ -113,6 +116,8 @@ public class RobotContainer {
                 -MathUtil.applyDeadband(driverController.getRightX(), OIConstants.kDriveDeadband),
                 true),
             driveSubsystem));
+
+        driverController.x().onTrue(new ResetGyro(driveSubsystem));
    
 
     

@@ -1,0 +1,102 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.0591400462962968,
+        "y": 0.7000166377314816
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.059140046296297,
+        "y": 0.7000166377314816
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.702009620949076,
+        "y": 1.1145439814814813
+      },
+      "prevControl": {
+        "x": 7.702009620949076,
+        "y": 0.47503857083044665
+      },
+      "nextControl": {
+        "x": 7.702009620949076,
+        "y": 1.754049392132515
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.702009620949076,
+        "y": 3.73942455150463
+      },
+      "prevControl": {
+        "x": 7.702009620949076,
+        "y": 2.8197659325098052
+      },
+      "nextControl": {
+        "x": 7.702009620949076,
+        "y": 4.9279216977357665
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.162589699074074,
+        "y": 0.7000166377314816
+      },
+      "prevControl": {
+        "x": 7.074904152199074,
+        "y": 0.2605572916666665
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "BlueRight1"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.7712479440789479,
+      "rotationDegrees": 90.0
+    },
+    {
+      "waypointRelativePos": 2.4429893092105246,
+      "rotationDegrees": 90.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "Pickup",
+      "waypointRelativePos": 0.8839285714285718,
+      "endWaypointRelativePos": 2.3,
+      "command": null
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 5.0,
+    "maxAcceleration": 3.5,
+    "maxAngularVelocity": 180.0,
+    "maxAngularAcceleration": 180.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "BluePaths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}
