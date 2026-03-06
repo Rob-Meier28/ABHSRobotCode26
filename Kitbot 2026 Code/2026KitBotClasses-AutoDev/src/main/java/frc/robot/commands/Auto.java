@@ -11,19 +11,24 @@ import frc.robot.subsystems.CANFuelSubsystem;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class ExampleAuto extends SequentialCommandGroup {
+public class Auto extends SequentialCommandGroup {
   /** Creates a new ExampleAuto. */
-  public ExampleAuto(CANDriveSubsystem driveSubsystem, CANFuelSubsystem ballSubsystem) {
+  public Auto(CANDriveSubsystem driveSubsystem, CANFuelSubsystem ballSubsystem) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-    // Drive backwards for .25 seconds. The driveArcadeAuto command factory
+    /*// Drive backwards for .25 seconds. The driveArcadeAuto command factory
     // intentionally creates a command which does not end which allows us to control
     // the timing using the withTimeout decorator
-    new AutoDrive(driveSubsystem,-0.5,  0.0).withTimeout(1.15),
+    //new AutoDrive(driveSubsystem,-0.5,  0.0).withTimeout(1.15),
     // Spin up the launcher for 1 second and then launch balls for 9 seconds, for a
     // total of 10 seconds
     new SpinUp(ballSubsystem).withTimeout(1),
-    new Launch(ballSubsystem).withTimeout(10));
+    new Launch(ballSubsystem).withTimeout(10)*/
+    new DriveAuto(driveSubsystem, 44.5, true),
+    new LaunchSequenceAuto(ballSubsystem),
+    new DriveAuto(driveSubsystem, 63.5, true),
+    new RotateAuto(driveSubsystem, 0, true),
+    new DriveAuto(driveSubsystem, 50, false));
   }
 }

@@ -25,6 +25,11 @@ public final class Constants {
     // Current limit for drivetrain motors. 60A is a reasonable maximum to reduce
     // likelihood of tripping breakers or damaging CIM motors
     public static final int DRIVE_MOTOR_CURRENT_LIMIT = 70;
+
+    public static final double driveSpeed = .25;
+    public static final double driveGearRatio = 0;
+    public static final double driveWheelCircumference = 0 * Math.PI;
+    public static final double metersPerInch = 0.0254;
   }
 
   public static final class FuelConstants {
@@ -45,6 +50,8 @@ public final class Constants {
     public static final double launchingLauncherVoltage = -8.6;
     public static final double spinUpHopperVoltage = -6;
     public static final double spinUpSeconds = 1;
+    public static final double spinUpSecondsAuto = 1;
+    public static final double shootSecondsAuto = 5;
   }
 
   public static final class OperatorConstants {

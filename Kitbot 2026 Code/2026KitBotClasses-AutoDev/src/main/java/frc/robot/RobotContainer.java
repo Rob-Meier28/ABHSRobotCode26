@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import static frc.robot.Constants.OperatorConstants.*;
 import frc.robot.commands.Drive;
 import frc.robot.commands.Eject;
-import frc.robot.commands.ExampleAuto;
+import frc.robot.commands.Auto;
 import frc.robot.commands.ExtendClimber;
 import frc.robot.commands.Intake;
 import frc.robot.commands.LaunchSequence;
@@ -55,10 +55,12 @@ public class RobotContainer {
       OPERATOR_CONTROLLER_PORT);
   // The autonomous chooser
   private final SendableChooser<Command> autoChooser;
+  private final boolean usePathplanner;
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
+    usePathplanner = false;
     NamedCommands.registerCommand("PickupBalls",new Intake(fuelSubsystem));
     NamedCommands.registerCommand("Shoot",new LaunchSequence(fuelSubsystem));
     configureBindings();
@@ -87,6 +89,8 @@ public class RobotContainer {
     // add additional auto modes you can add additional lines here with
     // autoChooser.addOption
     SmartDashboard.putData("autoChooser", autoChooser);
+    SmartDashboard.putBoolean("Use Pathplanner?", false);
+    autoChooser.setDefaultOption("Auto", new Auto(driveSubsystem, fuelSubsystem));
   }
 
   /**
@@ -133,7 +137,11 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
     try{
-        return new PathPlannerAuto(autoChooser.getSelected());
+        if (usePathplanner == true) {
+          return new PathPlannerAuto(autoChooser.getSelected());
+        } else {
+          return autoChooser.getSelected();
+        }
         // Load the path you want to follow using its name in the GUI
        // PathPlannerPath path = PathPlannerPath.fromPathFile("Example Path");
         // Create a path following command using AutoBuilder. This will also trigger event markers.

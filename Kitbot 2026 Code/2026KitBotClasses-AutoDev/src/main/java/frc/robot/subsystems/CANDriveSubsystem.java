@@ -5,9 +5,12 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.PersistMode;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -22,6 +25,16 @@ public class CANDriveSubsystem extends SubsystemBase {
   private final SparkMax rightLeader;
   private final SparkMax rightFollower;
 
+  private final RelativeEncoder leftLeaderEncoder;
+  private final RelativeEncoder leftFollowerEncoder;
+  private final RelativeEncoder rightLeaderEncoder;
+  private final RelativeEncoder rightFollowerEncoder;
+
+  private final SparkClosedLoopController PidLeftLeader;
+  private final SparkClosedLoopController PidLeftFollower;
+  private final SparkClosedLoopController PidRightLeader;
+  private final SparkClosedLoopController PidRightFollower;
+
   private final DifferentialDrive drive;
   private final Pigeon2 m_gyro = new Pigeon2(9);
 
@@ -31,6 +44,16 @@ public class CANDriveSubsystem extends SubsystemBase {
     leftFollower = new SparkMax(LEFT_FOLLOWER_ID, MotorType.kBrushless);
     rightLeader = new SparkMax(RIGHT_LEADER_ID, MotorType.kBrushless);
     rightFollower = new SparkMax(RIGHT_FOLLOWER_ID, MotorType.kBrushless);
+
+    leftLeaderEncoder = leftLeader.getEncoder();
+    leftFollowerEncoder = leftFollower.getEncoder();
+    rightLeaderEncoder = rightLeader.getEncoder();
+    rightFollowerEncoder = rightFollower.getEncoder();
+
+    PidLeftLeader = leftLeader.getClosedLoopController();
+    PidLeftFollower = leftLeader.getClosedLoopController();
+    PidRightLeader = leftLeader.getClosedLoopController();
+    PidRightFollower = leftLeader.getClosedLoopController();
 
     // set up differential drive class
     drive = new DifferentialDrive(leftLeader, rightLeader);
@@ -80,6 +103,27 @@ public class CANDriveSubsystem extends SubsystemBase {
    */
   public double getHeading() {
     return Rotation2d.fromDegrees(m_gyro.getRotation2d().getDegrees()).getDegrees();
+  }
+
+  public double[] getPositionRotations() {
+    double[] positions = new double[4];
+    positions[0] = leftLeaderEncoder.getPosition();
+    positions[1] = leftFollowerEncoder.getPosition();
+    positions[2] = rightLeaderEncoder.getPosition();
+    positions[3] = rightFollowerEncoder.getPosition();
+    return positions;
+  }
+
+  public void setAutoDestination(int value, double destination) {
+    if (value == 0) {
+      PidLeftLeader.setSetpoint(destination, ControlType.kPosition);
+    } else if (value == 1) {
+      PidLeftFollower.setSetpoint(destination, ControlType.kPosition);
+    } else if (value == 2) {
+      PidRightLeader.setSetpoint(destination, ControlType.kPosition);
+    } else if (value == 3) {
+      PidRightFollower.setSetpoint(destination, ControlType.kPosition);
+    }
   }
 
   @Override

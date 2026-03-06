@@ -5,33 +5,47 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.CANDriveSubsystem;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class AutoDrive extends Command {
-  /** Creates a new Drive. */
+public class RotateAuto extends Command {
+  /** Creates a new RotateAuto. */
   CANDriveSubsystem driveSubsystem;
-  double xSpeed, zRotation;
 
-  public AutoDrive(CANDriveSubsystem driveSystem, double xSpeed, double zRotation) {
+  private double degrees, position, target;
+  private boolean left;
+
+  public RotateAuto(CANDriveSubsystem driveSystem, double degrees, boolean left) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveSystem);
-    driveSubsystem = driveSystem;
-    this.xSpeed = xSpeed;
-    this.zRotation = zRotation;
+    this.driveSubsystem = driveSystem;
+    this.degrees = degrees;
+    this.left = left;
+
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    position = driveSubsystem.getHeading();
+    
+    if (left == false) {
+      target = position + degrees;
+    } else {
+      target = position - degrees;
+    }
   }
 
   // Called every time the scheduler runs while the command is scheduled.
-  // Setting the values here instead of in initialize feeds the watchdog on the
-  // arcade drive object
   @Override
   public void execute() {
-    driveSubsystem.driveArcade(xSpeed, zRotation);
+    if (left == false) {
+      driveSubsystem.driveArcade(0, OperatorConstants.ROTATION_SCALING);
+    } else {
+     driveSubsystem.driveArcade(0, OperatorConstants.ROTATION_SCALING * -1); 
+    }
+    position = driveSubsystem.getHeading();
   }
 
   // Called once the command ends or is interrupted.
@@ -43,6 +57,10 @@ public class AutoDrive extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    if (target == position) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
