@@ -3,35 +3,47 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.5224517505787043,
-        "y": 6.5151437355324076
+        "x": 10.90846195023148,
+        "y": 0.6689828559027786
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.953091639628934,
-        "y": 5.996193313781005
+        "x": 14.136040870949076,
+        "y": 0.5418296440972221
       },
       "isLocked": false,
-      "linkedName": "5"
+      "linkedName": "RedLeft1"
     },
     {
       "anchor": {
-        "x": 3.208737919560186,
-        "y": 4.422233362268519
+        "x": 13.738112991898149,
+        "y": 3.1661197193287034
       },
       "prevControl": {
-        "x": 2.5239748862916502,
-        "y": 5.403350156209187
+        "x": 15.257193648726853,
+        "y": 2.1519777199074075
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "End"
+      "linkedName": "RedLeft2"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "Shoot",
+      "waypointRelativePos": 1.0,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "Shoot"
+        }
+      }
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 5.0,
     "maxAcceleration": 6.0,
@@ -45,7 +57,7 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": null,
+  "folder": "RedPaths",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

@@ -7,31 +7,31 @@
         {
           "type": "path",
           "data": {
-            "pathName": "BlueLeft2"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "PickupBalls"
+            "pathName": "RedLeftPickup"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "BlueLeft1"
+            "pathName": "RedLeftShoot"
           }
         },
         {
-          "type": "named",
+          "type": "wait",
           "data": {
-            "name": "Shoot"
+            "waitTime": 4.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RedLeftClimb"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "RedAutos",
   "choreoAuto": false
 }

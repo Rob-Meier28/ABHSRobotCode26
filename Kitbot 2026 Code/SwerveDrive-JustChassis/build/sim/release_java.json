@@ -1,0 +1,21 @@
+[
+  {
+    "type": "java",
+    "name": "jar (in project SwerveDrive-JustChassis)",
+    "extensions": [
+      {
+        "name": "Sim GUI",
+        "libName": "/Users/noah/Library/Mobile Documents/com~apple~CloudDocs/Robotics/Code/KitbotCode/ABHSRobotCode26/Kitbot 2026 Code/SwerveDrive-JustChassis/build/jni/release/libhalsim_gui.dylib",
+        "defaultEnabled": true
+      },
+      {
+        "name": "Use Real DriverStation",
+        "libName": "/Users/noah/Library/Mobile Documents/com~apple~CloudDocs/Robotics/Code/KitbotCode/ABHSRobotCode26/Kitbot 2026 Code/SwerveDrive-JustChassis/build/jni/release/libhalsim_ds_socket.dylib",
+        "defaultEnabled": false
+      }
+    ],
+    "environment": {},
+    "libraryDir": "/Users/noah/Library/Mobile Documents/com~apple~CloudDocs/Robotics/Code/KitbotCode/ABHSRobotCode26/Kitbot 2026 Code/SwerveDrive-JustChassis/build/jni/release",
+    "mainClassName": "frc.robot.Main"
+  }
+]

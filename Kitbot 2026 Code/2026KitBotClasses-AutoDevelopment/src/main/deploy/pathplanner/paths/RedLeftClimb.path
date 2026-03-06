@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.0,
-        "y": 7.0
+        "x": 13.738112991898149,
+        "y": 3.1661197193287034
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.0,
-        "y": 7.0
+        "x": 14.738112991898149,
+        "y": 3.1661197193287034
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "RedLeft2"
     },
     {
       "anchor": {
-        "x": 3.0,
-        "y": 7.0
+        "x": 15.525606336805556,
+        "y": 3.1661197193287034
       },
       "prevControl": {
-        "x": 2.0,
-        "y": 7.0
+        "x": 14.525606336805556,
+        "y": 3.1661197193287034
       },
       "nextControl": null,
       "isLocked": false,
@@ -45,7 +45,7 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": null,
+  "folder": "RedPaths",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0
