@@ -53,7 +53,7 @@ public class DriveSubsystem extends SubsystemBase {
       DriveConstants.kBackRightChassisAngularOffset);    
 
   // The gyro sensor
-  private final Pigeon2 m_gyro = new Pigeon2(2); // ID set
+  public final Pigeon2 m_gyro = new Pigeon2(2); // ID set
   
 
   // Odometry class for tracking robot pose
